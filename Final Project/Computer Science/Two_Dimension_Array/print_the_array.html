@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Two Dimension Array</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	var usr_arr = [[],[],[]] // 3 x 3 array
+
+	var text = "";
+
+	function enter_and_print_arr(){
+		var i, j;
+		for (i = 0; i < 3; ++i){
+			for (j = 0; j < 3; ++j){
+				usr_arr[i][j] = prompt("Enter anything you like at here: ");
+			}
+		}
+		for (i = 0; i < 3; ++i){
+			for (j = 0; j < 3; ++j){
+				text = text + "    " + usr_arr[i][j];
+			}
+			text = text + "<br><br>";
+		}
+		document.getElementById('usr_arr_space').innerHTML = text;
+	}
+</script>
+
+</body>
+<center>
+	<h1>Entering And Printing The Two Dimension Array</h1>
+	<br><br>
+	<p><b>Please click the button below to start the program</b></p>
+	<br>
+	<input type="button" value="Enter and Print Array" onclick="enter_and_print_arr()">
+	<br><br>
+	<p id="usr_arr_space"></p>
+</center>
+</html>

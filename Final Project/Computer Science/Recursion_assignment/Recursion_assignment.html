@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <script>
+    /*
+    This subroutine recursively prints out hello as many times
+    as the number "repeat", and then prints "done"
+    */
+    function hello(repeats)
+    {
+        var counter;
+        counter = repeats;
+        counter = Number(counter);
+        //your code goes here
+        if (repeats == 0){
+            // This if condition is just for testing in case the user enter a zero input into the "repeats"
+            alert("This one doesn't say hello to the user !!!  " + counter);
+            return repeats;
+        }
+        else if (repeats == 1){
+            alert("Hello  " + counter);
+            alert("Done");
+        }
+        else{
+            alert("Hello  " + counter) + hello(repeats - 1);
+        }
+    }
+
+
+    /*
+    Given an array of integers, this subroutine computes recursively if the
+    array contains a 6.  We'll use the convention of considering only the
+    part of the array that BEGINS at the given index. In this way, a
+    recursive call can pass index+1 to move down the array. The initial
+    call will pass in index as 0.
+    */
+    function array6(nums, indexVal)
+    {
+        //your code goes here
+        //What built-in function should be used in this one ????
+        if (nums[indexVal] == 6){
+            alert("Found the six !!! at index " + indexVal);
+            return true;
+            }
+        else{
+            alert("This position in the array does not contain six !!!");
+            if ((indexVal + 1) > (nums.length)){
+                alert("There is no six in the array !!!");
+                return false;
+            }
+            else{
+                return array6(nums, (indexVal + 1));
+            }
+        }
+    }
+
+
+    </script>
+</head>
+
+<body>
+    <script>
+	    var isSix;  //boolean variable catches the result of the array6 function
+        arr1 = [1, 5, 4, 10, 9, 9, 2, 7];    //array to be sent to array6
+
+
+        hello(14); //call to subroutine Hello
+
+
+        isSix = array6(arr1, 0);  //call to subroutine array6
+        alert(isSix); //true if there is a 6 in the array
+
+    </script>
+</body>
+
+</html>

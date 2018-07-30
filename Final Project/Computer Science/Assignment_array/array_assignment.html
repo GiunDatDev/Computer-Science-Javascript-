@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array Project</title>
+</head>
+
+<body background = "mario.jpg">
+
+<script type="text/javascript" language="javascript">
+	// This program will have 7 functions embedded into 7 different buttons 
+
+	// 1. Reset_button will reset the web page and clear everything
+
+	// 2. Total function will calculate and print the sum of all elements in the array
+
+	// 3. Smallest function will print out the smallest number in the array
+
+	// 4. Print function will print out all the elements in the array
+
+	// 5. Print in reverse function will print out all the elements of the reverse array 
+
+	// 6. get_info function will get all the elements from the user and import all the elements into the array
+
+	// 7. check_num function will check if the input from the user is a number or not
+
+	// The array will hold up to 10 elements 
+
+	var out_put_text; // This will be the variable holding all the result of every single function
+	out_put_text = "";
+
+	var global_array = [];
+
+	function help_me(){
+		var choice;
+		choice = confirm(
+			"To use this program you need to enter 10 elements at the prompt box\n\n" + 
+
+			"There are 7 buttons below to help you do something fun\n\n" + 
+
+			"1. GETING THE ELEMENTS will prompt you to enter the 10 elements into to the array\n\n" +
+
+			"2. FIND SUM button will find the sum of all elements in the array that you have entered\n\n" +
+
+			"3. FIND MIN button will find the minimum element of the array that you have entered\n\n" + 
+
+			"4. PRINT THE ARRAY button will print out all the elements that you have entered in the array\n\n" +
+
+			"5. PRINT THE INVERSE ME button will print out the inverse array of all elements\n\n" + 
+
+			"6. NEED HELP ??? button will display this box again\n\n" +
+
+			"7. RESET button will reset the web page and leave it blank.");
+		if (choice == true){
+			return;
+		}
+		else{
+			help_me();
+		}
+	}
+
+	function reset_function(){
+		document.getElementById('output_result').innerHTML = "";
+		out_put_text = "";
+		global_array = [];
+	}
+
+	function get_info(){
+		var usr_input, i, choice;
+
+		for (i = 0; i < 10; ++i){
+			usr_input = prompt("Please enter your input at here: ");
+			
+			if ((isNaN(usr_input) == true) || (usr_input == "")){
+				choice = confirm("Your input is not right\nDo you want to do it again ???");
+				if (choice == true){
+					get_info();
+				}
+				else{
+					alert("Thank you for using my program !!!\nSee you soon !!!");
+					global_array = [];
+					return;
+				}
+			}
+			else{
+				usr_input = Number(usr_input);
+				global_array[i] = usr_input;
+			}
+		}
+	}
+
+	function sum_of_array(){
+		var sum, i, choice; 
+
+		if (global_array.length == 0){
+			choice = confirm("The array you have just entered is empty\nDo you want to start agian ???");
+			if (choice == true){
+				get_info();
+				sum_of_array();
+			}
+			else{
+				alert("Thank you for using my program !!!\nSee you soon !!!");
+				return;
+			}
+		}
+		else{
+			sum = 0;
+
+			for (i = 0; i < 10; ++i){
+				sum = sum + global_array[i];
+			}
+
+			out_put_text = out_put_text + "<br>" + "The sum of all elements in the array is: " + sum;
+			document.getElementById('output_result').innerHTML = out_put_text;
+		}
+	}
+
+	function minimum_element_of_array(){
+		var min, i, choice;
+
+		if (global_array.length == 0){
+			choice = confirm("The array you have just entered is empty\nDo you want to start agian ???");
+			if (choice == true){
+				get_info();
+				minimum_element_of_array();
+			}
+			else{
+				alert("Thank you for using my program !!!\nSee you soon !!!");
+				return;
+			}
+		}
+		else{
+			min = global_array[0];
+
+			for (i = 0; i < 10; ++i){
+				if (min > global_array[i]){
+					min = global_array[i];
+				}
+			}
+
+			out_put_text = out_put_text + "<br>" + "The minimum element of the array is: " + min;
+			document.getElementById('output_result').innerHTML = out_put_text;
+		}
+	}
+
+	function print_array(){
+		var choice;
+
+		if (global_array.length == 0){
+			choice = confirm("The array you have just entered is empty\nDo you want to start agian ???");
+			if (choice == true){
+				get_info();
+				print_array();
+			}
+			else{
+				alert("Thank you for using my program !!!\nSee you soon !!!");
+				return;
+			}
+		}
+		else{
+			out_put_text = out_put_text + "<br>" + "The array you just have entered is: " + 
+			global_array.join("  --  ");
+			document.getElementById('output_result').innerHTML = out_put_text;
+		}
+	}
+
+	function print_reverse_array(){
+		var i, j, choice;
+		var rev_array = [];
+
+		if (global_array.length == 0){
+			choice = confirm("The array you have just entered is empty\nDo you want to start agian ???");
+			if (choice == true){
+				get_info();
+				print_reverse_array();
+			}
+			else{
+				alert("Thank you for using my program !!!\nSee you soon !!!");
+				return;
+			}
+		}
+		else{
+			j = 0;
+
+			for (i = 9; i >= 0; --i){
+				rev_array[j] = global_array[i];
+				++j
+			}
+
+			out_put_text = out_put_text + "<br>" + "The reverse array from the array you have just entered is: " + rev_array.join("  --  ");
+			document.getElementById('output_result').innerHTML = out_put_text;
+		} 	
+	}
+
+</script>
+
+<form>
+	<center>
+		<audio controls autoplay>
+			<source src="mario.mp3" type="audio/mpeg">
+		</audio>
+
+		<br>
+		<h1>Array Project</h1>
+
+		<input type="button" value="GETING THE ELEMENTS" onclick="get_info()">
+		<br><br>
+		<input type="button" value="FIND THE SUM" onclick="sum_of_array()">
+		<br><br>
+		<input type="button" value="FIND THE MINIMUM" onclick="minimum_element_of_array()">
+		<br><br>
+		<input type="button" value="PRINT THE ARRAY" onclick="print_array()">
+		<br><br>
+		<input type="button" value="PRINT THE REVERSE ARRAY" onclick="print_reverse_array()">
+		<br><br>
+		<input type="button" value="NEED HELP ???" onclick="help_me()">
+		<br><br>
+		<input type="button" value="RESET THE PAGE" onclick="reset_function()">
+
+		<p id = "output_result"></p>
+	</center>
+</form>
+
+</body>
+</html>

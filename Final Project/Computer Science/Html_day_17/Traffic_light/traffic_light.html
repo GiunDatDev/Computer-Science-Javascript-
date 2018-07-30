@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Traffic Light</title>
+</head>
+<body background="mew.gif">
+
+<script type="text/javascript" language="javascript">
+	var clock = 1;
+
+	function turn_on_the_red_light(){
+		document.getElementById('traffic_light').src = "red.png";
+		++clock;
+	}
+
+	function turn_on_the_yellow_light(){
+		document.getElementById('traffic_light').src = "yellow.png"; 
+		++clock;
+	}	
+
+	function turn_on_the_green_light(){
+		document.getElementById('traffic_light').src = "green.png";
+		++clock; 
+	}
+
+	function check_and_open_light(){
+		if (clock == 1){
+			turn_on_the_red_light();
+		}
+
+		else if(clock == 2){
+			turn_on_the_yellow_light();
+		}
+
+		else if (clock == 3){
+			turn_on_the_green_light();
+		}
+
+		else{
+			clock = 1;
+			turn_on_the_red_light();
+		}
+	}
+</script>
+
+<center>
+
+	<input type="button" value="Change the traffic light" onclick="check_and_open_light()">
+
+	<br><br>
+
+	<img id="traffic_light" src="green.png" style="width: 100px">
+
+</center>
+
+</body>
+</html>

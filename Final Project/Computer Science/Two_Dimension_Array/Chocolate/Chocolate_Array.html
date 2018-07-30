@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chocolate Array</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	var chocolate_array = [["Circle-Solid-Chocolate", "Diamond-Caramel", "Heart- Toffee", "Diamond-Toffee", "Circle-Cream"], ["Diamond-Solid-Chocolate", "Big-Circle-Almond", "Big-Circle-Cream", "Diamond-Solid-Chocolate", "This location is nothing"], ["Circle-Caramel", "Oval-Cream", "Square-Caramel", "Oval-Solid-Chocolate", "Circle-Almond"]];
+
+	var text = "";
+
+	function reset_name(){
+		document.getElementById('name_space').innerHTML = "";
+		text = "";
+	}
+
+	function print_chocolate_name(){
+		var i, j;
+		for (i = 0; i < 3; ++i){
+			for (j = 0; j < 5; ++j){
+				text = text + chocolate_array[i][j] + "<br>";
+		
+			}
+		}
+		document.getElementById('name_space').innerHTML = text;
+	}
+
+	function show_the_chocolate(chocolate_name){
+		var i, j, name;
+		for (i = 0; i < 3; ++i){
+			for (j = 0; j < 5; ++j){
+				if (chocolate_name == chocolate_array[i][j]){
+					name = chocolate_name;
+					document.getElementById('chocolate_pic').src = (name + ".png");
+				}
+			}
+		}
+	}
+
+	function instruction(){
+		var choice;
+		choice = confirm(
+			"Click the Show the name of chocolate button to see the name first"
+			+ "\nThen copy, paste the name into the text box and click the Show the chocolate button"
+			);
+
+		if (choice == true){
+			return;
+		}
+		else{
+			instruction();
+		}
+	}
+
+	instruction();
+</script>
+
+<form>
+	<center>
+		<img src="Chocolate-Box.png" alt="Chocolate-Box" width="423" height="300">
+
+		<p id="name_space"></p>
+
+		<br><br>
+
+		<img id="chocolate_pic" src="Fun-Chocolate.gif" alt="chocolate_pic" width="200" height="200">
+
+		<p><b>Name The Chocolate You Want At Here: </b></p> <input type="text" name="name_of_chocolate" size="20">
+
+		<br><br>
+
+		<input type="button" value="Show the name of chocolate" onclick="print_chocolate_name()">
+
+		<br><br>
+
+		<input type="button" value="Show the chocolate" onclick="show_the_chocolate(name_of_chocolate.value)">
+
+		<br><br>
+
+		<input type="button" value="Reset the name" onclick="reset_name()"> 
+</center>
+</form>
+
+</body>
+</html>

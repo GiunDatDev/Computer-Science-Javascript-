@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3 x 3 Matrices</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	// This program will ask the user for the 3 x 3 matrices
+	// After that, print the matrices and check if the matrices is magic or not
+
+	var usr_arr = [[], [], []];
+	var text = "";
+
+	function check_magic(){
+		var i, j;
+
+		for (i = 0; i < 3; ++i){
+			for (j = 0; j < 3; ++j){
+				var sum_row_1 = usr_arr[0][0] + usr_arr[0][1] + usr_arr[0][2];
+				var sum_row_2 = usr_arr[1][0] + usr_arr[1][1] + usr_arr[1][2];
+				var sum_row_3 = usr_arr[2][0] + usr_arr[2][1] + usr_arr[2][2];
+
+				var sum_col_1 = usr_arr[0][0] + usr_arr[1][0] + usr_arr[2][0];
+				var sum_col_2 = usr_arr[0][1] + usr_arr[1][1] + usr_arr[2][1];
+				var sum_col_3 = usr_arr[0][2] + usr_arr[1][2] + usr_arr[2][2];
+
+				var sum_dia_1 = usr_arr[0][0] + usr_arr[1][1] + usr_arr[2][2];
+				var sum_dia_2 = usr_arr[0][2] + usr_arr[1][1] + usr_arr[2][0];
+			}
+		}
+		var total_sum = sum_dia_1 + sum_dia_2 + sum_row_1 + sum_row_2 + sum_row_3 + sum_col_1 + sum_col_2 + sum_col_3;
+		if (total_sum == 120){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	function get_info(){
+
+		for (i = 0; i < 3; ++i){
+			for (j = 0; j < 3; ++j){
+				usr_arr[i][j] = Number(prompt("Please enter the number at here: "));
+			}
+		}
+
+		for (i = 0; i < 3; ++i){
+			for (j = 0; j < 3; ++j){
+				text = text + "    " + usr_arr[i][j];
+			}
+			text = text + "<br><br>";
+		}
+
+		var result = check_magic(usr_arr);
+		if (result == true){
+			var result_text = "<b>This is the MAGIC array !!!<b>";
+		}
+		else{
+			var result_text = "<b>This is not the MAGIC array !!!<b>";
+		}
+
+		document.getElementById('usr_arr_space').innerHTML = text + "<br><br>" + result_text;
+	}
+</script>
+
+<center>
+	<img src="the_gift.gif" alt="The gift">
+
+	<h1>This is the MAGIC array project</h1>
+	
+	<br>
+
+	<p><b>Click the button to use the array !!!</b></p>
+
+	<br>
+
+	<input type="button" value="MAGIC ARRAY OR NOT ???" onclick="get_info()">
+
+	<br>
+
+	<b><p id="usr_arr_space"></p></b>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marking Project</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	//This is the global variables which is used for storing the multiple result
+	var output_for_id_button_1 = "";
+	var output_for_id_button_2 = "";
+
+	//The help function will tell the user the instruction to use the program
+	function help_func(){
+		var choice;
+		choice = confirm("Wellcome to Shaun's marking project\nBefore we start, here is some rules that you should follow during the process to get the best result\nIf you want to enter an exam that get 0%\nPlease enter -1 in order to prompt the system\nAnd enter 0 in order to stop the program.");
+		if (choice == true){
+			return;
+		}
+		else{
+			help_func();
+		}
+	}
+
+	//Rounding function will fix the function to one decimal point
+	function rounding_func(num){
+		Number(num);
+		num = num.toFixed(1);
+		return num;
+	}
+
+	//This function will calculate the average test result and print it one the screen
+	function get_and_calculate_ave_func(){
+		var input_result, total_result, ave_result, counter, choice;
+		input_result = Number(input_result);
+		total_result = Number(total_result);
+		ave_result = Number(ave_result);
+		counter = Number(counter);
+
+		total_result = 0;
+		counter = 0;
+
+		while (input_result != 0){
+			input_result = prompt("Please enter your mark at here:");
+			if (input_result > 100){
+				alert("You have just entered a mark that is greater than 100\nSo the program has just been stopped.");
+				return;
+			}
+			else{
+				input_result = Number(input_result);
+				if (input_result == -1){
+					++counter;
+				}
+				else{
+					total_result = total_result + input_result;
+					++counter;
+				}
+			}
+		}
+		--counter;
+		if (total_result == 0){
+			choice = confirm("You have not enter anything yet\nDo you want to continue ???");
+			if (choice == true){
+				get_and_calculate_ave_func();
+			}
+			else{
+				return;
+			}
+		}
+		else{
+			ave_result = total_result / counter;
+			ave_result = rounding_func(ave_result);
+			output_for_id_button_1 = output_for_id_button_1 + "<br>" + "Your average was " + ave_result + " on these " + counter + " tests.";
+			document.getElementById('first_button_result').innerHTML = output_for_id_button_1;
+		}
+	}
+
+	//This function will calculate the average result of the tests and determine how many tests the user passed
+	function passed_test_result(){
+		var input_result, counter, passed_counter, total_result, choice;
+		input_result = Number(input_result);
+		counter = Number(counter);
+		passed_counter = Number(passed_counter);
+		total_result = Number(total_result);
+
+		counter = 0;
+		passed_counter = 0;
+		total_result = 0;
+
+		while (input_result != 0){
+			input_result = prompt("Please enter your mark at here:");
+
+			//If the user enter a number bigger than 100, it will kill the program
+			if (input_result > 100){
+				alert("You have just entered a mark that is greater than 100\nSo the program has just been stopped.");
+				return;
+			}
+			else{
+				input_result = Number(input_result);
+				if (input_result >= 50){
+					++passed_counter;
+				}
+				++counter;
+				total_result = total_result + input_result;
+			}
+		}
+
+		--counter
+		if (total_result == 0){
+			choice = confirm("You have not enter anything yet\nDo you want to continue ???");
+			if (choice == true){
+				passed_test_result();
+			}
+			else{
+				return;
+			}
+		}
+		else{
+			output_for_id_button_2 = output_for_id_button_2 + "<br>" + "You passed " + passed_counter + " on these " + counter + " tests.";
+			document.getElementById('seccond_button_result').innerHTML = output_for_id_button_2;
+		}		
+	}
+
+	//Clear function will clear the screen and renew the total memory
+	function clear_func(){
+		document.getElementById('first_button_result').innerHTML = "";
+		document.getElementById('seccond_button_result').innerHTML = "";
+		output_for_id_button_1 = "";
+		output_for_id_button_2 = "";
+	}
+
+</script>
+
+<center>
+	<h1>Marking Project</h1>
+	<h2>Please read the instruction carefully before you start it !!!</h2>
+	<img src="op.jpg" alt="One Piece" width="640" height="300">
+	<br><br>
+	<input type="button" value="Need help ??? Click Here" onclick="help_func()">
+	<br><br>
+	<input type="button" value="Average Calculator" onclick="get_and_calculate_ave_func()">
+	<br><br>
+	<input type="button" value="Pass Counter" onclick="passed_test_result()">
+	<br><br>	
+	<input type="button" value="Clear Everything" onclick="clear_func()">
+
+	<p id = "first_button_result"></p>
+	<p id = "seccond_button_result"></p>
+</center>
+</body>
+</html>
+

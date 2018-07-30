@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recursion_assignment_version_2</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function hello(repeats)
+    {
+        var counter;
+        counter = repeats;
+        counter = Number(counter);
+        //your code goes here
+        if (repeats == 0){
+            // This if condition is just for testing in case the user enter a zero input into the "repeats"
+            alert("This one doesn't say hello to the user !!!  " + counter);
+            return repeats;
+        }
+        else if (repeats == 1){
+            alert("Hello  " + counter);
+            alert("Done");
+        }
+        else{
+            alert("Hello  " + counter) + hello(repeats - 1);
+        }
+    }
+
+    function array6(nums, indexVal)
+    {
+        //your code goes here
+        if (nums[indexVal] == 6){
+            alert("Found the six !!! at index " + indexVal);
+            return true;
+            }
+        else{
+            alert("This position in the array does not contain six !!!");
+            if ((indexVal + 1) > (nums.length)){
+                alert("There is no six in the array !!!");
+                return false;
+            }
+            else{
+                return array6(nums, (indexVal + 1));
+            }
+        }
+    }
+
+    function get_info()
+    {
+    	//This function will get the array for array6
+    	var array_for_6 = [1, 5, 4, 10, 6, 9, 2, 7];
+    	var isSix;
+
+    	isSix = array6(array_for_6, 0);
+    	alert(isSix);
+    }
+</script>
+
+</body>
+
+<center>
+	<img src="thor.gif" alt="THOR">
+	<h1>Recursion Assignment Version Two</h1>
+	<br><br>
+	<input type="button" value="Print the hello" onclick="hello(14)">
+	<br><br>
+	<input type="button" value="Array six" onclick="get_info()">
+	<br><br>
+</center>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dice Rolling</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	var the_glo_total, the_glo_dice_1, the_glo_dice_2;
+
+	function show_or_hide_link(the_glo_total){
+		var convenient_store_link = document.getElementById('convenient_store_link');
+		var snake_link = document.getElementById('snake_link');
+
+		if ((the_glo_total == 7) || (the_glo_total == 11)){
+			convenient_store_link.style.display = "block";
+		}	
+		else{
+			convenient_store_link.style.display = "none";
+		}
+	}
+
+	function show_or_hide_link_snake(the_glo_dice_1, the_glo_dice_2){
+		var snake_link = document.getElementById('snake_link');
+
+		if ((the_glo_dice_1 == 1) && (the_glo_dice_2 == 1)){
+			snake_link.style.display = "block";
+		}
+		else{
+			snake_link.style.display = "none";
+		}
+	}
+
+	function turn_the_dices(){
+		var dice_1, dice_2, the_total, the_text;
+
+		dice_1 = ((Math.floor(Math.random()*6))+1);
+		dice_2 = ((Math.floor(Math.random()*6))+1);
+		
+		if (dice_1 == 1){
+			document.getElementById('dice_1_img').src = "D1.png";
+		}
+		else if (dice_1 == 2){
+			document.getElementById('dice_1_img').src = "D2.png";
+		}
+		else if (dice_1 == 3){
+			document.getElementById('dice_1_img').src = "D3.png";
+		}
+		else if (dice_1 == 4){
+			document.getElementById('dice_1_img').src = "D4.png";
+		}
+		else if (dice_1 == 5){
+			document.getElementById('dice_1_img').src = "D5.png";
+		}
+		else{
+			document.getElementById('dice_1_img').src = "D6.png";
+		}
+
+		if (dice_2 == 1){
+			document.getElementById('dice_2_img').src = "D1.png";
+		}
+		else if (dice_2 == 2){
+			document.getElementById('dice_2_img').src = "D2.png";
+		}
+		else if (dice_2 == 3){
+			document.getElementById('dice_2_img').src = "D3.png";
+		}
+		else if (dice_2 == 4){
+			document.getElementById('dice_2_img').src = "D4.png";
+		}
+		else if (dice_2 == 5){
+			document.getElementById('dice_2_img').src = "D5.png";
+		}
+		else{
+			document.getElementById('dice_2_img').src = "D6.png";
+		}
+
+		the_total = dice_1 + dice_2;
+		the_glo_total = the_total;
+		the_glo_dice_1 = dice_1; 
+		the_glo_dice_2 = dice_2;
+		show_or_hide_link_snake(the_glo_dice_1, the_glo_dice_2);
+		show_or_hide_link(the_glo_total);
+		the_text = "The total value of the dices is: " + the_total;
+		document.getElementById('the_total').innerHTML = the_text;
+	}
+
+
+</script>
+<center>
+	<img src="mario_sleep.gif" alt="MARIO SLEEP">
+	<br><br>
+	<input type="button" value="Roll the dice" onclick="turn_the_dices()">
+	<br><br>
+	<img id = "dice_1_img">
+	<img id = "dice_2_img">
+	<p id = "the_total"></p>
+
+	<div id = "convenient_store_link">
+		<p><a href = "https://www.7-eleven.com/" target="_blank">Want to buy something !!! Click Here</a></p>
+	</div>
+
+	<div id = "snake_link">
+		<a href = "https://en.wikipedia.org/wiki/Snake_(video_game_genre)" target="_blank">
+			<img src="snake.gif" alt="SNAKE GIF">
+		</a>
+	</div>
+</center>
+
+<script type="text/javascript">
+	convenient_store_link.style.display = "none";
+	snake_link.style.display = "none";
+</script>
+</body>
+</html>
