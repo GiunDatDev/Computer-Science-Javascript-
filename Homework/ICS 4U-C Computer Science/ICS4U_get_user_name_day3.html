@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ICS4U Get User Name</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function frist_name(){
+		var local_first_name;
+		local_first_name = prompt("Please enter your FIRST NAME at here:");
+		return local_first_name;
+	}
+	function middle_name(){
+		var local_middle_name;
+		local_middle_name = prompt("Please enter your MIDDLE NAME at here:");
+		return local_middle_name;
+	}
+	function last_name(){
+		var local_last_name;
+		local_last_name = prompt("Please enter your LAST NAME at here:");
+		return local_last_name;
+	}
+</script>
+
+<script type="text/javascript" language="javascript">
+	var frist_name_usr, middle_name_usr, last_name_usr;
+	frist_name_usr = frist_name();
+	middle_name_usr = middle_name();
+	last_name_usr = last_name();
+
+	document.write("Your full name is: " + frist_name_usr + " " + middle_name_usr + " " + last_name_usr);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buying the hammers</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function rounding_func(num){
+		Number(num);
+		num = num.toFixed(2);
+		return num;
+	}
+	function print_the_bill(quantity, unit_cost, total_price){
+		alert("Purchasing " + quantity + " hammers have a unit cost of " + unit_cost + " and therefore your total cost is " + total_price);
+	}
+
+	var price_1, price_2, price_3, price_4, quantity, total_price, unit_cost;
+	// price 1 is for 0 > 10 hammers
+	price_1 = 2.50;
+	// price 1 is for 11 > 20 hammers
+	price_2 = 2.25;
+	// price 1 is for 21 > 50 hammers
+	price_3 = 1.75;
+	// price 1 is for > 50 hammers
+	price_4 = 1.00;
+
+	quantity = prompt("How many hammers do you want to buy ???");
+	if (quantity > 0 &&  quantity <= 10){
+		unit_cost = price_1;
+		total_price = price_1 * quantity;
+		total_price = rounding_func(total_price);
+		print_the_bill(quantity, unit_cost, total_price)
+	}
+	else if (quantity > 10 && quantity <= 20){
+		unit_cost = price_2;
+		total_price = price_2 * quantity;
+		total_price = rounding_func(total_price);
+		print_the_bill(quantity, unit_cost, total_price)
+	}
+	else if (quantity > 20 && quantity <=50){
+		unit_cost = price_3;
+		total_price = price_3 * quantity;
+		total_price = rounding_func(total_price);
+		print_the_bill(quantity, unit_cost, total_price)
+	}
+	else if (quantity > 50){
+		unit_cost = price_4;
+		total_price = price_4 * quantity;
+		total_price = rounding_func(total_price);
+		print_the_bill(quantity, unit_cost, total_price)
+	}
+	else{
+		alert("This amount does not exit LOL.");
+	}
+</script>
+
+</body>
+</html>

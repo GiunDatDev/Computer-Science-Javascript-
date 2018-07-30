@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Count the bunnies ears</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function odd_or_even(num){
+		var result;
+
+		if (num % 2 == 0){
+			result = true;
+		}
+		else{
+			result = false;
+		}
+		return result;
+	}
+
+	function count_the_ears(num_of_rabits){
+		var ears = 0;
+
+		if (num_of_rabits == 0){
+			return num_of_rabits;
+		}
+
+		else if (odd_or_even(num_of_rabits) == true){
+			ears = ears + 3;
+			return ears + count_the_ears(num_of_rabits - 1);
+		}
+
+		else if (odd_or_even(num_of_rabits) == false){
+			ears = ears + 2;
+			return ears + count_the_ears(num_of_rabits - 1);
+		}
+	}
+
+	function get_info(){
+		var num_of_rabits, total_ears;
+		var text = "";
+
+		num_of_rabits = prompt("Please enter the number of rabits at here: ");
+		num_of_rabits = Number(num_of_rabits);
+		total_ears = count_the_ears(num_of_rabits);
+		text = 'The total ears of the rabits is: ' + total_ears;
+		document.getElementById('ears_of_rabits').innerHTML = text;
+	}
+</script>
+
+<center>
+	<h1>This program will calculate the bunny ears</h1>
+	<br><br>
+	<input type="button" value="Find the ears ???" onclick="get_info()">
+	<p id = "ears_of_rabits"></p>
+</center>
+
+</body>
+</html>

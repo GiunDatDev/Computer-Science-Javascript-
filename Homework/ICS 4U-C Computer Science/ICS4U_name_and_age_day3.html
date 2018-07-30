@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ICS4U Name And Age</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function get_name(){
+		var name_local;
+		name_local = prompt("Please enter your name at here:");
+		return name_local;
+	}
+
+	function get_age(){
+		var age_local;
+		age_local = prompt("Please enter your age at here:");
+		return age_local;
+	}
+</script>
+
+<script type="text/javascript" language="javascript">
+	var name, age;
+	name = get_name();
+	age = get_age();
+
+	document.write("Hello " + name + ". You are " + age +" years old.");
+</script>
+
+</body>
+</html>

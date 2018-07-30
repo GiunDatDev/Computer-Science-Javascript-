@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pythagorean Application</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function rounding(n){
+		n = Number(n);
+		n = n.toFixed(2);
+		return n;
+	}
+
+	function find_the_hypotenous(side_1_args, side_2_args){
+		var result;
+		side_1_args = Math.pow(side_1_args, 2);
+		side_2_args = Math.pow(side_2_args, 2);
+		result = Math.sqrt(side_1_args + side_2_args);
+		return result;
+	}
+
+	function get_info(){
+		var side_1, side_2, hypotenous, text;
+		side_1 = prompt("Please enter the first side of the triagle.");
+		side_1 = Number(side_1);
+		side_2 = prompt("Please enter the second side of the triagle.");
+		side_2 = Number(side_2);
+
+		hypotenous = find_the_hypotenous(side_1, side_2);
+		hypotenous = rounding(hypotenous);
+		text = "The result of the longest side of the triagle is: " + hypotenous;
+		document.getElementById('hypotenous').innerHTML = text;
+	}
+</script>
+
+<center>
+	<h1>This program will calculate the hypotenous of the triagle</h1>
+	<br><br>
+	<input type="button" value="Find the hypotenous" onclick="get_info()">
+	<br>
+	<p id = "hypotenous"></p>
+</center>
+
+</body>
+</html>

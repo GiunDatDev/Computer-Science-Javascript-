@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ask and print the mark</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	var usr_mark = [];
+
+	function get_the_mark(){
+		var mark, counter, i, cond;
+
+		for (i = 0; i < 5; ++i){
+			mark = prompt("Please enter your mark at here: ");
+			mark = Number(mark);
+			if (mark < 0){
+				cond = confirm("Sorry the mark you have just entered is not correct.");
+				if (cond == true){
+					get_the_mark();
+				}
+				else{
+					alert("Thank you for using this program.");
+					return;
+				}
+			}
+			else{
+				usr_mark[i] = mark;
+			}
+		}
+
+		for (i = 0; i < 5; ++i){
+			counter = i + 1;
+			document.write("Your " + counter + " mark is: " + usr_mark[i] + "<br>" + "<br>");
+		}
+	}
+
+	get_the_mark();
+</script>
+</body>
+</html>

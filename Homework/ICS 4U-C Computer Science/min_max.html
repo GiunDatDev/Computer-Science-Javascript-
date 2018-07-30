@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Min Max Project</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	var val_array = [];
+
+	function max_func(val_array_for_max, n){
+		var i, max;
+		max = val_array_for_max[0];
+		for (i = 0; i < n; ++i){
+			if (max < val_array_for_max[i]){
+				max = val_array_for_max[i];
+			}
+		}
+		return max;
+	}
+
+	function min_func(val_array_for_min, n){
+		var i, min;
+		min = val_array_for_min[0];
+		for (i = 0; i < n; ++i){
+			if (min > val_array_for_min[i]){
+				min = val_array_for_min[0];
+			}
+		}
+		return min;
+	}
+
+	function get_info(){
+		var n, i, val, min_val, max_val, min_num, max_num;
+
+		n = prompt("How many numbers do you want to compare ???");
+		n = Number(n);
+
+		for (i = 0; i < n; ++i){
+			val = prompt("Enter the number at here:");
+			val = Number(val);
+			val_array[i] = val;
+		}
+
+		min_val = min_func(val_array, n);
+		max_val = max_func(val_array, n);
+
+		min_num = "The min number is: " + min_val;
+		max_num = "The max number is: " + max_val;
+
+		document.getElementById('min_num_text').innerHTML = min_num;
+		document.getElementById('max_num_text').innerHTML = max_num;
+	}
+
+	function clearing_func(){
+		document.getElementById('min_num_text').innerHTML = "";
+		document.getElementById('max_num_text').innerHTML = "";
+	}
+
+</script>
+
+<center>
+	<h1>Min And Max</h1>
+	<br><br>
+	<input type="button" value="Find Min And Max" onclick="get_info()">
+	<br><br>
+	<input type="button" value="Clearing Button" onclick="clearing_func()">
+
+	<p id="min_num_text"></p>
+	<p id="max_num_text"></p>
+</center>
+
+</body>
+</html>

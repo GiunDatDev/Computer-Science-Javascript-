@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find the sum of the three element</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function get_the_vals_and_calc(){
+		var usr_num = [];
+		var val, i, sum_result;
+
+		sum_result = 0;
+		for (i = 0; i < 3; ++i){
+			val = prompt("Please enter the value at here: ")
+			val = Number(val);
+			usr_num[i] = val;
+		}
+
+		for (i = 0; i < 3; ++i){
+			sum_result = sum_result + usr_num[i];
+		}
+		alert("The sum of three elements in the array is: " + sum_result);
+	}
+
+	get_the_vals_and_calc();
+</script>
+</body>
+</html>

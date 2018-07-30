@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SortingProject</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function ori_sorting_function(usr_array){
+		var i, j, temp;
+		for (i = 0; i < usr_array.length; ++i){
+			for (j = 0; j < usr_array.length - 1 - i; ++j){
+				if (usr_array[j] > usr_array[j + 1]){
+					temp = usr_array[j];
+					usr_array[j] = usr_array[j + 1];
+					usr_array[j + 1] = temp;
+				}
+			}
+		}
+		document.getElementById('sorting_space').innerHTML = usr_array;
+	}
+
+	function rev_sorting_function(usr_array){
+		var i, j, temp;
+		for (i = 0; i < usr_array.length; ++i){
+			for (j = 0; j < usr_array.length - 1 - i; ++j){
+				if (usr_array[j] < usr_array[j + 1]){
+					temp = usr_array[j];
+					usr_array[j] = usr_array[j + 1];
+					usr_array[j + 1] = temp;
+				}
+			}
+		}
+		document.getElementById('rev_sorting_space').innerHTML = usr_array;
+	}
+
+	function get_info(){
+		var counter;
+		var in_usr_array = [];
+		var arr_num = prompt("How many elements in the array ???");
+		arr_num = Number(arr_num);
+
+		for (counter = 0; counter < arr_num; ++counter){
+			in_usr_array[counter] = prompt("Enter the element at here: ");
+			in_usr_array[counter] = Number(in_usr_array[counter]);	
+		}
+
+		ori_sorting_function(in_usr_array);
+		rev_sorting_function(in_usr_array);
+	}
+</script>
+
+<center>
+	<h1>Sorting Project</h1>
+	<br><br>
+	<p>Click the button to use the program !!!</p>
+	<br><br>
+	<input type="button" value="Sorting the array" onclick="get_info()">
+	<br><br>
+	<p id = "sorting_space"></p>
+	<p id = "rev_sorting_space"></p>	
+</center>
+</body>
+</html>

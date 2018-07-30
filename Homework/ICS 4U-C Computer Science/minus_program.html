@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find The Difference</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function rounding_func(num) {
+		num = Number(num);
+		num = num.toFixed(2);
+		return num;
+	}
+
+	function find_the_diff(a, b){
+		var result, text;
+		result = a - b;
+		result = rounding_func(result);
+		text = "The difference of the two numbers is: " + result;
+		document.getElementById('diff_result').innerHTML = text;
+	}
+</script>
+
+<form>
+	<center>
+		<h1>This Program Will Calculate The Difference Of The Two Numbers</h1>
+		<br><br>
+		<p><b>Enter the first number at here: </b> <input type="text" name="num_1" size="20"></p>
+		<br>
+		<p><b>Enter the seccond number at here: </b> <input type="text" name="num_2" size="20"></p>
+		<br>
+		<input type="button" value="Click Me To Calculate The Difference" onclick="find_the_diff(num_1.value, num_2.value)">
+		<br>
+		<p id="diff_result"></p>
+	</center>
+</form>
+</body>
+</html>

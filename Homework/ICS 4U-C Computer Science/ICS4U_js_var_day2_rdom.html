@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ICS4U Javascript Random Number Day 2</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+
+	var first_dice_trial, seccond_dice_trial, total_dice_val;
+	//This one declare the vars for the first, seccond and total value for those 2 dice trials
+
+	first_dice_trial = Math.floor(Math.random() * 6) + 1;
+	seccond_dice_trial = Math.floor(Math.random() * 6) + 1;
+	total_dice_val = first_dice_trial + seccond_dice_trial;
+	//Math.floor(Math.random() * 6) + 1; will make a ramdom number from 0 to 6
+	//Math.floor() will round down a number
+	//Math.ramdom() will gerenate a ramdom number
+	//Plus 1 at the end to make sure the max number it can round can reach to 6 lol
+	
+	document.write("The first die shows a: " + first_dice_trial + "<br><br>");
+	document.write("The seccond die shows a: " + seccond_dice_trial + "<br><br>");
+	document.write("The total for this roll is: " + total_dice_val + "<br><br>");
+</script>
+
+</body>
+</html>

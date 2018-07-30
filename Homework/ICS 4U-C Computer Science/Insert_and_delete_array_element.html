@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inserting and Deleting Array Elements</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	var name_array = ["Nguyen ", "Dao ", "The ", "Hien "];
+
+	function add_to_the_end(usr_array){
+		alert("Your name is: " + usr_array);
+		usr_array.push("NGUYEN HIEN");
+		alert("Your new name is: " + usr_array);
+		return true;
+	}
+
+	function add_to_the_beginning(usr_array){
+		alert("Your name is: " + usr_array);
+		usr_array.unshift("NGUYEN HIEN ");
+		alert("Your new name is: " + usr_array);
+		return true;
+	}
+
+	function remove_from_the_end(usr_array){
+		alert("Your name is: " + usr_array);
+		usr_array.pop();
+		alert("Your new name is: " + usr_array);
+		return true;
+	}
+
+	function remove_from_the_beginning(usr_array){
+		alert("Your name is: " + usr_array);
+		usr_array.shift();
+		alert("Your new name is: " + usr_array);
+		return true;
+	}
+
+	function get_new_array(usr_array){
+		var new_name = [];
+		alert("Your name is: " + usr_array);
+		new_name = usr_array.slice(1,3);
+		alert("Your name is: " +  new_name);
+		return true;
+	}
+	add_to_the_end(name_array); //Nguyen, Dao, The, Hien, NGUYEN HIEN
+	add_to_the_beginning(name_array); //NGUYEN HIEN, Nguyen, Dao, The, Hien, NGUYEN HIEN
+	remove_from_the_end(name_array); //NGUYEN HIEN, Nguyen, Dao, The, Hien
+	remove_from_the_beginning(name_array); //Nguyen, Dao, The, Hien
+	
+	get_new_array(name_array); //Dao, The
+</script>
+
+</body>
+</html>

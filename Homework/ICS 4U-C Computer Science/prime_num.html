@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find The Prime Number</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function check_prime(num){
+		var i, counter, reset_num, result;
+
+		reset_num = num;
+		counter = 0;
+
+		i = Number(i);
+		counter = Number(counter);
+
+		for (i = 2; i < num; ++i){
+			num = num % i;
+			if (num == 0){
+				++counter;
+			}
+			num = reset_num;
+		}
+
+		//Checking condition
+		if (counter != 0){
+			result = false;
+		}
+		else{
+			result = true;
+		}
+		return result;
+	}
+
+	function get_info_and_alert_user(num){
+		var result, text_true, text_false;
+
+		num = Number(num);
+		result = check_prime(num);
+		text_true = "This number is a prime number.";
+		text_false = "This number is not a prime number.";
+
+		if (result == true){
+			document.getElementById('result_of_prime').innerHTML = text_true;
+		}
+		else if (result == false){
+			document.getElementById('result_of_prime').innerHTML = text_false;
+		}
+	}
+</script>
+<form>
+	<center>
+		<h1>This Program Will Determine If A Number Is Prime Or Not</h1>
+		<p><b>Enter the number at here: </b> <input type="text" name="num_1" size="20"></p>
+		<br>
+		<input type="button" value="Check This Number" onclick="get_info_and_alert_user(num_1.value)">
+		<br>
+		<p id="result_of_prime"></p>
+	</center>
+</form>
+</body>
+</html>

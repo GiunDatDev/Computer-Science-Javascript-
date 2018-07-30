@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiply all the number</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function multiply_down(num){
+		var result = 1;
+
+		if (num == 0){
+			return num;
+		}
+
+		else if (num == 1){
+			return num;
+		}
+
+		else{
+			return num * multiply_down(num - 1);
+		}
+	}
+
+	function get_info(){
+		var num, result;
+		var text = "";
+
+		num = prompt("Please enter the number at here: ");
+		num = Number(num);
+		result = multiply_down(num);
+		text = "The result of multiplying down is: " + result;
+		document.getElementById('multiplying_result').innerHTML = text;
+	}
+</script>
+<center>
+	<h1>This program will multiply down all the number</h1>
+	<br><br>
+	<input type="button" value="Multiply down" onclick="get_info()">
+	<p id = "multiplying_result"></p>
+</center>
+</body>
+</html>

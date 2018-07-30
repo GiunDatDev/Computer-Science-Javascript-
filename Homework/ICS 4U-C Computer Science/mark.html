@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marking Project</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function rounding_func(num){
+		Number(num);
+		num = num.toFixed(1);
+		return num;
+	}
+
+	function get_and_calculate_ave_func(){
+		var input_result, total_result, ave_result, counter, output_for_id;
+		input_result = Number(input_result);
+		total_result = Number(total_result);
+		ave_result = Number(ave_result);
+		counter = Number(counter);
+
+		total_result = 0;
+		counter = 0;
+
+		while (input_result != 0){
+			input_result = prompt("Please enter your mark at here:");
+			input_result = Number(input_result);
+			if (input_result == -1){
+				++counter;
+			}
+			else{
+				total_result = total_result + input_result;
+				++counter;
+			}
+		}
+		--counter;
+		if (total_result == 0){
+			alert("You have not enter anything yet.");
+			get_and_calculate_ave_func();
+		}
+		else{
+			ave_result = total_result / counter;
+			ave_result = rounding_func(ave_result);
+			output_for_id = "Your average was " + ave_result + " on these " + counter + " tests.";
+			document.getElementById('first_button_result').innerHTML = output_for_id;
+		}
+	}
+
+	function passed_test_result(){
+		var input_result, counter, passed_counter, total_result, output_for_id;
+		input_result = Number(input_result);
+		counter = Number(counter);
+		output_for_id = Number(output_for_id);
+		passed_counter = Number(passed_counter);
+		total_result = Number(total_result);
+
+		counter = 0;
+		passed_counter = 0;
+		total_result = 0;
+
+		while (input_result != 0){
+			input_result = prompt("Please enter your mark at here:");
+			input_result = Number(input_result);
+			if (input_result >= 50){
+				++passed_counter;
+			}
+			++counter;
+			total_result = total_result + input_result;
+		}
+
+		--counter
+		if (total_result == 0){
+			alert("You have not enter anything yet.");
+			passed_test_result();
+		}
+		else{
+			output_for_id = "You passed " + passed_counter + " on these " + counter + " tests.";
+			document.getElementById('seccond_button_result').innerHTML = output_for_id;
+		}		
+	}
+
+	function clear_func(){
+		document.getElementById('first_button_result').innerHTML = "";
+		document.getElementById('seccond_button_result').innerHTML = "";
+	}
+</script>
+
+<center>
+	<input type="button" value="Average Calculator" onclick="get_and_calculate_ave_func()">
+	<input type="button" value="Average Calculator" onclick="passed_test_result()">
+	<input type="button" value="Clear Everything." onclick="clear_func()">
+	<p id = "first_button_result"></p>
+	<p id = "seccond_button_result"></p>
+</center>
+</body>
+</html>

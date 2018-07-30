@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find the number 6</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	var text_array = [];
+	var usr_input, counter, i, status_glb;
+
+	function find_me(agrs){
+		var status;
+
+		status = agrs.indexOf("6");
+
+		if (status != -1){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	counter = prompt("How many elements do you want to add into the array ???");
+	counter = Number(counter);
+
+	for (i = 0; i < counter; ++i){
+		usr_input = prompt("Enter the element at here: ");
+		text_array[i] = usr_input;
+	}
+
+	status_glb = find_me(text_array);
+
+	if (status_glb == true){
+		alert("There is 6 in the array.");
+	}
+	else{
+		alert("There is no 6 in the array.");
+	}
+</script>
+</body>
+</html>

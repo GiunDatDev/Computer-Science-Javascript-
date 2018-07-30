@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Determining Money For A Carpet</title>
+</head>
+<body>
+
+<audio autoplay="">
+	<source src="mario.mp3" type="audio/mpeg">
+	</source>
+</audio>
+
+<script type="text/javascript" language="javascript">
+
+	// This function will round the price to two decimal places
+	function rounding_func(num){
+		//Remember to treat with argument using the toFixed(args) as a number not a string
+		var round_num;
+		num = num * 1;
+		round_num = num.toFixed(2);
+		return round_num;
+	}
+
+	// This function is used to find the area of the user's room
+	function room_area_func(lenght, width){
+		var local_room_area;
+		local_room_area = lenght * width;
+		return local_room_area;
+	}
+
+	//This function is used to calculate the price and return the value
+	function price_tag_cal(lenght, width){
+		var price_per_unit, total_price, area_of_room;
+		area_of_room = room_area_func(lenght, width);
+		price_per_unit = 12.90;
+		total_price = area_of_room * price_per_unit;
+		total_price = rounding_func(total_price);
+		return total_price;
+	}
+	//This function is used to calculate the price and print it on the screen
+	// It also prints the area of the user's room too
+	function price_tag_for_showing(lenght, width){
+		var price_per_unit, total_price, area_of_room;
+		price_per_unit = 12.90;
+		area_of_room = room_area_func(lenght, width);
+		total_price = area_of_room * price_per_unit;
+		total_price = rounding_func(total_price);
+		area_of_room = rounding_func(area_of_room);
+		alert("The area of the room is: " + area_of_room);
+		alert("The total price for your optional carpet is: " + total_price + " $");
+		print_the_bill(lenght, width);
+	}
+
+	// This fucntion is used to print the bill
+	function print_the_bill(lenght, width){
+		var returned_money, total_price, money_from_usr, choice;
+		money_from_usr = prompt("Please enter the amount of money you want to spend for the carpet");
+		money_from_usr = rounding_func(money_from_usr);
+		total_price = price_tag_cal(lenght, width);
+		returned_money = money_from_usr - total_price;
+		returned_money = rounding_func(returned_money);
+		
+		// Check if the money is not enough
+		// The program will prompt the user to do it again or cancle
+		if (returned_money < 0){
+			alert("The money that you paid is not enough\nPlease do it again !!!\nEnter letter Y to continue\nEnter letter N to cancel");
+			Choice = prompt("Do you want to continue ???");
+			if (Choice == 'Y'){
+				print_the_bill(lenght, width);
+			}
+			else if (Choice == 'N'){
+				alert("Thank you for shopping with us\nHave a goodday !!!\nSee you soon");
+			}
+			else{
+				alert("Sorry we did not get that");
+			}
+		}
+		
+		// Check if the money is enough
+		else if (returned_money >= 0){
+			alert("The money you paid is: " + money_from_usr + " $" + "\n" + "The money returned back is: " + returned_money + " $");
+			alert("Thank you for shopping with us\nHave a good day\nSee you soon");
+		}
+	}
+</script>
+
+<center>
+	<h1>Please Enter The Lenght And The Width Of Your Room At The Form</h1>
+	<h2>And Please Enter Them In Meters</h2>
+
+	<form>
+		<p><b>The lenght of your room</b> <input type="text" size="10" name="num1">
+		<p><b>The width of your room</b> <input type="text" size="10" name="num2">
+		<br><br>
+		<p><input type="button" value="Go To Cart" onclick="price_tag_for_showing(num1.value,num2.value)"></p>
+	</form>
+</center>
+</body>
+</html>

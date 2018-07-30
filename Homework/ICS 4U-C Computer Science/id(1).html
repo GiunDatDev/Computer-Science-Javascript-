@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First JavaScript</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function restart_forIDstyle(){
+		document.getElementById('text_space').innerHTML = "";
+		document.getElementById('text_space_by_2').innerHTML = "";
+		document.getElementById('text_space_by_3').innerHTML = "";
+	}
+
+	function get_info_for_alert(){
+		var text = "";
+		var i = 0;
+		while (i < 10){
+			text = text + "\n The number is: " + i;
+			++i;
+		}
+		return text;
+	}
+
+	function show_with_alert(){
+		var text_returned;
+		text_returned = get_info_for_alert();
+		alert(text_returned);
+	}
+
+	function get_info_forID(){
+		var text = "";
+		var i = 0;
+		while (i < 10){
+			text = text + "<br> The number is: " + i;
+			++i;
+		}
+		return text;
+	}
+
+	function show_with_ID(){
+		var text_returned;
+		text_returned = get_info_forID();
+		document.getElementById('text_space').innerHTML = text_returned;
+	}
+
+	function get_info_by_2(){
+		var text = "";
+		var i = 0;
+		while (i < 10){
+			text = text + "<br> The number is: " + i;
+			i += 2;
+		}
+		return text;
+	}
+
+	function show_with_ID_by_2(){
+		var text_returned;
+		text_returned = get_info_by_2();
+		document.getElementById('text_space_by_2').innerHTML = text_returned;
+	}
+
+	function get_info_by_3(){
+		var text = "";
+		var i = 0;
+		while (i < 10){
+			text = text + "<br> The number is: " + i;
+			i += 3;
+		}
+		return text;
+	}
+
+	function show_with_ID_by_3(){
+		var text_returned;
+		text_returned = get_info_by_3();
+		document.getElementById('text_space_by_3').innerHTML = text_returned;
+	}
+
+</script>
+
+<center>
+	<img src="ronghaiphong.jpg">
+	<h1>Clicking button will initiate loop</h1>
+	<input type="button" value="Click Me To See The Alert Style" onclick="show_with_alert()">
+	<br><br>
+	<input type="button" value="Click Me To See The ID Printing Style" onclick="show_with_ID()">
+	<br><br>
+	<input type="button" value="Click Me To See The ID Printing Style By 2" onclick="show_with_ID_by_2()">
+	<br><br>
+	<input type="button" value="Click Me To See The ID Printing Style By 3" onclick="show_with_ID_by_3()">
+	<br><br>
+	<input type="button" value="Restart The ID Printing Style" onclick="restart_forIDstyle()">
+	
+	<p id="text_space"></p>
+	<p id="text_space_by_2"></p>
+	<p id="text_space_by_3"></p>
+
+</center>
+</body>
+</html>

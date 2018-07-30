@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marking Me Ahihihi</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	//Rounding function will round the result to 1 decimal place
+	function rounding_func(num){
+		num = num * 1;
+		num = num.toFixed(1);
+		return num;
+	}
+
+	//Average function will take the result of the test and return the average mark for the student
+	function average_func(test_1, test_2, test_3, test_4, test_5){
+		var ave_result;
+		ave_result = (test_1 + test_2 + test_3 + test_4 + test_5)/5;
+		ave_result = rounding_func(ave_result);
+		return ave_result;
+	}
+
+	//Generate function will calculate the ave_result, how many tests have passed and alert the user
+	function generate_output(name, test_1, test_2, test_3, test_4, test_5){
+		var counter, i, ave_result;
+		counter = 0;
+		test_1 = test_1 * 1;
+		test_2 = test_2 * 1;
+		test_3 = test_3 * 1;
+		test_4 = test_4 * 1;
+		test_5 = test_5 * 1;
+
+		//Array defination in order to find how many tests have the student passed
+		var test_result = [test_1, test_2, test_3, test_4, test_5];
+		for (i = 0; i <= 5; ++i){
+			if (test_result[i] >= 50)
+				counter += 1;
+		}
+
+		ave_result = average_func(test_1, test_2, test_3, test_4, test_5);
+		alert("Student Name: " + name + "\n" + "Test passed: " + counter + "\n" + "Average: " + ave_result + " %");
+	}
+
+</script>
+
+<center>
+	<form>
+		<h1>Please enter your name and your test marks out of 100</h1>
+		<p><b>Name: </b><input type="text" size="20" name="num1"></p>
+		<p><b>Test 1: </b> <input type="text" size="20" name="num2"></p>
+		<p><b>Test 2: </b> <input type="text" size="20" name="num3"></p>
+		<p><b>Test 3: </b> <input type="text" size="20" name="num4"></p>
+		<p><b>Test 4: </b> <input type="text" size="20" name="num5"></p>
+		<p><b>Test 5: </b> <input type="text" size="20" name="num6"></p>
+		<br>
+		<br>
+		<input type="button" value="Generate Output" onclick="generate_output(num1.value, num2.value, num3.value, num4.value, num5.value, num6.value)">
+	</form>
+</center>
+</body>
+</html>

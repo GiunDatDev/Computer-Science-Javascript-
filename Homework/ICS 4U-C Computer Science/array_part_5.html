@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Print the reversing array</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function get_the_original_array(){
+		var ori_array = [];
+		var i, usr_input, choice;
+
+		for (i = 0; i < 5; ++i){
+			usr_input = prompt("Enter the value at here: ");
+			usr_input = Number(usr_input);
+
+			if (isNaN(usr_input) == true){
+				choice = confirm("This input is not a number\nDo you want to do it again ???");
+				if (choice == true){
+					get_the_original_array();
+				}
+				else{
+					alert("Thank you for using the program");
+					return;
+				}
+			}
+			else{
+				ori_array[i] = usr_input;
+			}
+		}
+		return ori_array;
+	}
+
+	function get_the_reverse_array(){	
+		var rev_array = [];
+		var ori_array = [];
+
+		ori_array = get_the_original_array();
+		var i, j;
+
+		j = 0;
+
+		for (i = 4; i >= 0; --i){
+			rev_array[j] = ori_array[i];
+			++j;
+		}
+
+		document.write("You enter the array: " + ori_array);
+		document.write("<br>");
+		document.write("The reversing array is: " + rev_array);
+	}
+
+	get_the_reverse_array();
+</script>
+</body>
+</html>

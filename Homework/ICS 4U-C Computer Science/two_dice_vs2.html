@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rolling The Dices</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function yes_or_no(){
+		var conf;
+		conf = confirm("Do you want to do it again ???");
+		if (conf == true){
+			rolling();
+		}
+		else if (conf == false){
+			alert("Thank you for playing this game.");
+			return;
+		}
+		//THis block of code won't help much, but sometime there are errors that require the code to have the else conditions 
+		//It is better to have one then
+		else{
+			alert("Sorry I did not get it !!!");
+			yes_or_no();
+		}
+	}
+
+	function rolling(){
+		var x = Math.floor((Math.random() * 6) + 1);
+		var y = Math.floor((Math.random() * 6) + 1);
+		alert("The first dice value is: " + x + "\n" + "The seccond dice value is: " + y);
+		yes_or_no();
+	}
+	rolling();
+</script>
+</body>
+</html>

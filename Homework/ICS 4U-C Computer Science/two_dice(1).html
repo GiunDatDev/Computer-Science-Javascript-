@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rolling The Dice</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function rolling(){
+		var x = Math.floor((Math.random() * 6) + 1);
+		var y = Math.floor((Math.random() * 6) + 1);
+		var dec;
+		alert("The first dice value is: " + x + "\n" + "The seccond dice value is: " + y);
+		dec = prompt("Do you want to do it again ???");
+		if (dec == "yes"){
+			rolling();
+		}
+		else if (dec == "no"){
+			return;
+		}
+		else{
+			alert("Sorry I did not get it");
+			rolling();
+		}
+	}
+	rolling();
+
+</script>
+</body>
+</html>

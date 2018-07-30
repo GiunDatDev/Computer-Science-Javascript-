@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ICS4U Javascript String Day 2</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	function show_name(first_name_local, middle_name_local, last_name_local)
+	{
+		alert("Hello my name is: " + first_name_local + " " + middle_name_local + " " + last_name_local + ", nice to meet you!!!");
+	}
+
+</script>
+
+<script type="text/javascript" language="javascript">
+	var first_name, middle_name, last_name;
+	first_name = "Hien";
+	middle_name = "Dao The";
+	last_name = "Nguyen";
+	document.write("<b>Hello my name is: </b>" + first_name + " " + middle_name + " " + last_name);
+	document.write("<br><br>");
+</script>
+
+<center>
+	<input type="button" value="Show my name" onclick="show_name(first_name, middle_name, last_name)">
+</center>
+
+</body>
+</html>

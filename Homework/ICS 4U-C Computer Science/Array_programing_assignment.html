@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript" src="jslib.js"></script>
+
+<script type="text/javascript" language="javascript">
+	// usr_array is set as a global array
+	var usr_array = [];
+
+	function get_array(){
+		var counter, choice;
+
+		for (counter = 0; counter < 9; ++counter){
+			usr_array[counter] = prompt("Please enter the element of the array at here: ");
+			if (isNaN(usr_array[counter]) == true){
+				choice = confirm("The element you have just entered is not a number\n"
+					+ "Do you want to start again ???"
+					);
+				if (choice == true){
+					get_array();
+				}
+				else{
+					return;
+				}
+			}
+			else{
+				usr_array[counter] = Number(usr_array[counter]);
+			}
+		}
+
+		usr_array = insertion_sort_func(usr_array);
+		usr_array.join(" - ");
+		document.getElementById('user_array').innerHTML = "The array you have just entered was: " + usr_array.join(" - ");
+	}
+
+	function fix_the_array(usr_array){
+		var insertInt = prompt("Please enter the number you want to add into the array !!!");
+		insertInt = Number(insertInt);
+		usr_array = insert_element(usr_array, insertInt);
+
+		var deleteInt = prompt("Please enter the number you want to delete at here !!!");
+		deleteInt = Number(deleteInt);
+		usr_array = remv_element_pos(usr_array, deleteInt);
+
+		var new_insertInt = prompt("Please enter the new number you want to add into the array !!!");
+		new_insertInt = Number(new_insertInt);
+		usr_array = insert_element(usr_array, new_insertInt);
+
+		document.getElementById('processed_array').innerHTML = "The array you have just entered was processed: " + usr_array.join(" - ");
+	}
+
+
+</script>
+
+<center>
+	<h1>Array Programing Assignment</h1>
+	<br>
+	<p>Click the button to enter the array !!!</p>
+	<input type="button" value="Enter the array" onclick="get_array()">
+	<br><br>
+	<input type="button" value="Fix the array" onclick="fix_the_array(usr_array)">
+	<p id="user_array"></p>
+	<br>
+	<p id="processed_array"></p>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conversion Project</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	var printed_result; // Printed_result will take the result from all these function and store all of them
+	printed_result = "";
+
+	// This function will reset the result and make the page clear
+	function reset_button(){
+		document.getElementById('printed_result').innerHTML = "";
+		printed_result = "";
+	}
+
+	// Rounding function will round the result up to 2 decimal places
+	function rounding_func(num){
+		num = Number(num);
+		num = num.toFixed(1);
+		return num;
+	}
+
+	// This function will convert the unit from inches to centimetres
+	function conv_in_to_cen(inch){
+		var cm, result_of_num; // Result of num is the variable to store the result if a number is a number and greater than zero or not
+		result_of_num = testing_func(inch);
+		if (result_of_num == true){
+			inch = Number(inch);
+			cm = Number(cm);
+			cm = inch * 2.54000;
+			cm = rounding_func(cm);
+			printed_result = printed_result + "<br>" + inch + " inches is " + cm + " centimetres";
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}
+		else{
+			printed_result = printed_result + "<br>" + "This is not a number"
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}	
+	}
+
+	// This function will convert the unit from feet to centimetres
+	function conv_ft_to_cen(ft){
+		var cm, result_of_num;
+		result_of_num = testing_func(ft);
+		if (result_of_num == true){
+			ft = Number(ft);
+			cm = Number(cm);
+			cm = ft * 30.48000;
+			cm = rounding_func(cm);
+			printed_result = printed_result + "<br>" + ft + " feet is " + cm + " centimetres";
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}
+		else{
+			printed_result = printed_result + "<br>" + "This is not a number"
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}
+	}
+
+	// This function will convert the unit from yards to metres
+	function conv_yd_to_m(yd){
+		var m, result_of_num;
+		result_of_num = testing_func(yd);
+		if (result_of_num == true){
+			yd = Number(yd);
+			m = Number(m);
+			m = yd * 0.91440;
+			m = rounding_func(m);
+			printed_result = printed_result + "<br>" + yd + " yards is " + m + " metres";
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}
+		else{
+			printed_result = printed_result + "<br>" + "This is not a number"
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}
+	}
+
+	// This function will convert the unit from miles to kilometres
+	function conv_mi_to_km(mi){
+		var km, result_of_num; 
+		result_of_num = testing_func(mi);
+		if (result_of_num == true){
+			mi = Number(mi);
+			km = Number(km);
+			km = mi * 1.60934;
+			km = rounding_func(km);
+			printed_result = printed_result + "<br>" + mi + " miles is " + km + " kilometres";
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}
+		else{
+			printed_result = printed_result + "<br>" + "This is not a number"
+			document.getElementById('printed_result').innerHTML = printed_result;
+		}
+	}
+
+	// This function will test if the input_number is a number and greater than zero or not
+	function testing_func(num){
+		var result;
+		if ((isNaN(num) == false) && (num >= 0)){
+			result = true;
+		}
+		else{
+			result = false;
+		}
+		return result;
+	}
+
+</script>
+
+<form>
+	<center>
+		<h1>Converting Project</h1>
+		<br>
+		<p><b>Enter the number at here: </b> <input type="text" name="input_from_usr_1" size="20"></p>
+		<br><br>
+		<input type="button" value="Click to convert from inches to centimetres" onclick="conv_in_to_cen(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Click to convert from feet to centimetres" onclick="conv_ft_to_cen(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Convert from yards to metres" onclick="conv_yd_to_m(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Convert from miles to kilometres" onclick="conv_mi_to_km(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Reset button" onclick="reset_button()">
+		<br><br>
+		<p id="printed_result"></p>
+	</center>
+</form>
+
+</body>
+</html>

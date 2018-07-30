@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Printing Hello The World</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function printing(times){
+		Number(times);
+		var counter;
+		counter = 1;
+		while (counter <= times){
+			document.write("Hello The World");
+			document.write("<br>");
+			++counter;
+		}
+	}
+
+	function times(){
+		var times;
+		times = prompt("Please Enter How Many Times You Want Me To Print???");
+		printing(times);
+	}
+</script>
+<center>
+	<input type="button" value="Click Me" onclick="times()">
+</center>
+</body>
+</html>

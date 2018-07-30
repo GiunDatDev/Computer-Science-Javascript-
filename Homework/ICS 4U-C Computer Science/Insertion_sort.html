@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sorting Project</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function insertion_sort_func(usr_array){
+		var i, j, key;
+
+		for (i = 1; i < usr_array.length; ++i){
+			j = i - 1;
+			key = usr_array[i];
+
+			while (j >=0 && usr_array[j] > key){
+				usr_array[j + 1] = usr_array[j];
+				--j;
+			}
+			usr_array[j + 1] = key;
+		}
+		var copy_arr = usr_array.slice(0, usr_array.length);
+		return copy_arr;
+	}
+
+	function getInfo(){
+		var usr_arr = []
+		var counter, arr_len;
+
+		arr_len = prompt("How many element in the array ??? ");
+		arr_len = Number(arr_len);
+
+		for (counter = 0; counter < arr_len; ++counter){
+			usr_arr[counter] = prompt("Enter the value at here: ");
+			usr_arr[counter] = Number(usr_arr[counter]);
+		}
+
+		var copy_arr = insertion_sort_func(usr_arr);
+		document.getElementById('sorted_arr').innerHTML = "The sorted array is: " + copy_arr;
+	}
+</script>
+
+<center>
+	<h1>This program will use the insertion sorting algorithm</h1>
+	<br><br>
+	<p>Click the button below to use the program</p>
+	<br>
+	<input type="button" value="Insertion sorting button" onclick="getInfo()">
+	<br>
+	<p id="sorted_arr"></p>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+The html file is missing the quote symbol "" inside the alert function in line 5
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ALERT TYPE</title>
+	<script type="text/javascript" language="javascript">
+		alert("Hello World");
+	</script>
+</head>
+
+<body>
+
+</body>
+</html>

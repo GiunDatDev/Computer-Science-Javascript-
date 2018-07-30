@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conversion Project</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	var printed_result;
+	printed_result = "";
+
+	function reset_button(){
+		document.getElementById('printed_result').innerHTML = "";
+	}
+
+	function rounding_func(num){
+		num = Number(num);
+		num = num.toFixed(2);
+		return num;
+	}
+
+	function conv_in_to_cen(inch){
+		var cm;
+		inch = Number(inch);
+		cm = Number(cm);
+		cm = inch * 2.54000;
+		cm = rounding_func(cm);
+		printed_result = printed_result + "<br>" + inch + " inches is " + cm + " centimetres";
+		document.getElementById('printed_result').innerHTML = printed_result;
+	}
+
+	function conv_ft_to_cen(ft){
+		var cm;
+		ft = Number(ft);
+		cm = Number(cm);
+		cm = ft * 30.48000;
+		cm = rounding_func(cm);
+		printed_result = printed_result + "<br>" + ft + " feet is " + cm + " centimetres";
+		document.getElementById('printed_result').innerHTML = printed_result;
+	}
+
+	function conv_yd_to_m(yd){
+		var m;
+		yd = Number(yd);
+		m = Number(m);
+		m = yd * 0.91440;
+		m = rounding_func(m);
+		printed_result = printed_result + "<br>" + yd + " yards is " + m + " metres";
+		document.getElementById('printed_result').innerHTML = printed_result;
+	}
+
+	function conv_mi_to_km(mi){
+		var km;
+		mi = Number(mi);
+		km = Number(km);
+		km = mi * 1.60934;
+		km = rounding_func(km);
+		printed_result = printed_result + "<br>" + mi + " miles is " + km + " kilometres";
+		document.getElementById('printed_result').innerHTML = printed_result;
+	}
+
+</script>
+
+<form>
+	<center>
+		<h1>Converting Project</h1>
+		<br>
+		<p><b>Enter the number at here: </b> <input type="text" name="input_from_usr_1" size="20"></p>
+		<br><br>
+		<input type="button" value="Click to convert from inches to centimetres" onclick="conv_in_to_cen(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Click to convert from feet to centimetres" onclick="conv_ft_to_cen(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Convert from yards to metres" onclick="conv_yd_to_m(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Convert from miles to kilometres" onclick="conv_mi_to_km(input_from_usr_1.value)">
+		<br><br>
+		<input type="button" value="Reset button" onclick="reset_button()">
+		<br><br>
+		<p id="printed_result"></p>
+	</center>
+</form>
+
+</body>
+</html>

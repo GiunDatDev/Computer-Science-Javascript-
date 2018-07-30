@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enter A Word</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function decision(){
+		var str_to_compare, input_text, counter;
+		var dec = true;
+		counter = 0;
+		str_to_compare = "end";
+		do{
+			input_text = prompt("Enter a word");
+			if (input_text != str_to_compare){
+				++counter;
+				dec = true;
+			}
+			else if (input_text == str_to_compare){
+				alert("You Have Entered " + counter + " Words.");
+				dec = false;
+			}
+		}
+		while(dec);
+	}
+
+	decision();
+</script>
+</body>
+</html>

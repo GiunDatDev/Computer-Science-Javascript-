@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find the max and replace everything</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function find_max(a, b){
+		var max;
+		max = a;
+		if (a < b){
+			max = b;
+		}
+		return max;
+	}
+
+	function find_and_replace(){
+		var local_array = [];
+		var choice, i, num_1, num_2, max, usr_input; 
+		
+		for (i = 0; i < 3; ++i){
+			usr_input = prompt("Please enter the value at here: ");
+			usr_input = Number(usr_input);
+
+			if (isNaN(usr_input) == true){
+				choice = confirm("This input is not a number\nDo you want to do it again ???");
+				if (choice == true){
+					find_and_replace();
+				}
+				else{
+					alert("Thank you for using the program");
+					return;
+				}
+			}
+			else{
+				local_array[i] = usr_input;
+			}
+		}
+
+		num_1 = local_array[0];
+		num_2 = local_array[2];
+		max = find_max(num_1, num_2);
+
+		for (i = 0; i < 3; ++i){
+			local_array[i] = max;
+		}
+
+		alert("The new array is: " + local_array);
+	}
+
+	find_and_replace();
+</script>
+</body>
+</html>

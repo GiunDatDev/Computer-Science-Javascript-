@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Finding The Sum Of N Number</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	function sum_of_n(n){
+		Number(n);
+		var counter, sum;
+		sum = 0;
+		counter = 0;
+		while (counter <= n){
+			sum = sum + counter;
+			++counter;
+		}
+		alert("The Sum Is: " + sum);
+	}
+</script>
+<center>
+		<h1>Please Enter How Many Number That You Want To Find The Sum ???</h1>
+		<br><br>
+		<form>
+			<p><b>Enter N At Here</b> <input type="text" size="20" name="N1"></p>
+			<br><br>
+			<p> <input type="button" value="Find The Sum" onclick="sum_of_n(N1.value)"></p>
+		</form>
+</center>
+</body>
+</html>

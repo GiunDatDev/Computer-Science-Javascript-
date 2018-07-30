@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rolling The Dices</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function yes_or_no(){
+		var dec = prompt("Do you want to do it again ???", "Please enter 'yes' or 'no' inside the box.");
+		if (dec =="yes"){
+			rolling();
+		}
+		else if (dec =="no"){
+			alert("Thank you for playing !!!");
+			return;
+		}
+		else{
+			alert("Sorry I did not get it !!!");
+			yes_or_no();
+		}
+	}
+
+	function rolling(){
+		var x = Math.floor((Math.random() * 6) + 1);
+		var y = Math.floor((Math.random() * 6) + 1);
+		alert("The first dice value is: " + x + "\n" + "The seccond dice value is: " + y);
+		yes_or_no();
+	}
+	rolling();
+</script>
+</body>
+</html>

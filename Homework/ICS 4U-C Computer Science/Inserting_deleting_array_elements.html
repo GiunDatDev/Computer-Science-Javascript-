@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inserting and Deleting Array Element Using Splice</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+	var text_array = [];
+
+	function add_to_the_beginning(usr_array){
+		usr_array.splice(0, 0, "Start ");
+		document.getElementById('printing_text').innerHTML = usr_array;
+	}
+
+	function add_to_the_end(usr_array){
+		usr_array.splice((usr_array.length), 0, "End ");
+		document.getElementById('printing_text').innerHTML = usr_array;
+	}
+
+	function remove_from_the_beginning(usr_array){
+		usr_array.splice(0, 1);
+		document.getElementById('printing_text').innerHTML = usr_array;
+	}
+
+	function remove_from_the_end(usr_array){
+		usr_array.splice(-1, 1);
+		document.getElementById('printing_text').innerHTML = usr_array;
+	}
+
+	function add_JOE_to_the_middle(usr_array){
+		var mid_pos, ini_pos, end_pos;
+		ini_pos = 0;
+		end_pos = usr_array.length - 1;
+		mid_pos = (ini_pos + end_pos) / 2;
+		mid_pos = Math.floor(mid_pos) + 1;
+		usr_array.splice(mid_pos, 0, "JOE");
+		document.getElementById('printing_text').innerHTML = usr_array;
+	}
+
+	function remove_the_zero(usr_array){
+		var counter;
+		for (counter = 0; counter < usr_array.length; ++counter){
+			if (usr_array[counter] == 0){
+				usr_array.splice(counter, 1);
+				return remove_the_zero(usr_array);
+			}
+		}
+		document.getElementById('printing_text').innerHTML = usr_array; 	
+	}
+
+	function remove_non_number(usr_array){
+		var counter;
+		for (counter = 0; counter < usr_array.length; ++counter){
+			if (isNaN(usr_array[counter]) == true){
+				usr_array.splice(counter, 1);
+				return remove_non_number(usr_array);
+			}
+			//return remove_non_number(usr_array);
+			// Why we can not put this command over here ???
+		}
+		document.getElementById('printing_text').innerHTML = usr_array;
+	}
+
+	function get_info(){
+		var counter, arr_length;
+
+		arr_length = prompt("How many elements in the array ???");
+		arr_length = Number(arr_length);
+
+		for (counter =0; counter < arr_length; ++counter){
+			text_array[counter] = prompt("Enter the element at here: ");
+		}
+		document.getElementById('printing_text').innerHTML = text_array;
+	}
+</script>
+
+<form>
+	<center>
+		<h1>This Program Will Delete And Insert Element Into The Array</h1>
+		<input type="button" value="Enter the array" onclick="get_info()">
+		<br><br>
+		<input type="button" value="Add to the beggining" onclick="add_to_the_beginning(text_array)"> 
+		<br><br>
+		<input type="button" value="Add to the end" onclick="add_to_the_end(text_array)">
+		<br><br>
+		<input type="button" value="Remove from the beggining" onclick="remove_from_the_beginning(text_array)">
+		<br><br>
+		<input type="button" value="Remove from the end" onclick="remove_from_the_end(text_array)">
+		<br><br>
+		<input type="button" value="Add JOE at middle" onclick="add_JOE_to_the_middle(text_array)">
+		<br><br>
+		<input type="button" value="Remove the ZERO" onclick="remove_the_zero(text_array)">
+		<br><br>
+		<input type="button" value="Remove the non-num" onclick="remove_non_number(text_array)">
+		<br><br>
+
+		<p id = "printing_text"></p>
+	</center>
+</form>
+
+</body>
+</html>

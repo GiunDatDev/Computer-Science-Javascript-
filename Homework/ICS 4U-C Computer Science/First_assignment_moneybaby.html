@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Determining Money For A Carpet</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+
+	function room_area_func(lenght, width){
+		var local_room_area;
+		local_room_area = lenght * width;
+		return local_room_area;
+	}
+
+	function price_tag(lenght, width){
+		var price_per_unit, total_price, area_of_room;
+		area_of_room = room_area_func(lenght, width);
+		price_per_unit = 12.90;
+		total_price = area_of_room * price_per_unit;
+		return total_price;
+	}
+
+	function price_tag_to_show(lenght, width){
+		var price_per_unit, total_price, area_of_room;
+		price_per_unit = 12.90;
+		area_of_room = room_area_func(lenght, width);
+		total_price = area_of_room * price_per_unit;
+		alert("The total price for your optional carpet is: " + total_price);
+	}
+
+	function money_return_func(usr_mon, total_price){
+		var return_money;
+		return_money = usr_mon - total_price;
+		return return_money;
+	}
+
+	function print_the_bill(lenght_of_room, width_of_room){
+		var returned_money, total_price_bill, money_from_usr;
+		money_from_usr = prompt("Please enter the money you want to spend")
+		total_price_bill = price_tag(lenght_of_room, width_of_room);
+		returned_money = money_return_func(money_from_usr, total_price_bill);
+		alert("The money you paid is: " + money_from_usr);
+		alert("The money returned is: " + returned_money);
+	}
+</script>
+
+<center>
+	<h1>Please Enter The Lenght And The Width Of Your Room At The Form</h1>
+	<h2>And Please Enter Them In Meters</h2>
+
+	<form>
+		<p><b>The lenght of your room</b> <input type="text" size="10" name="num1">
+		<p><b>The width of your room</b> <input type="text" size="10" name="num2">
+		<br><br>
+		<p><input type="button" value="Price Tag" onclick="price_tag_to_show(num1.value,num2.value)">
+		<p><input type="button" value="Go To Cart" onclick="print_the_bill(num1.value,num2.value)"></p>
+	</form>
+</center>
+</body>
+</html>

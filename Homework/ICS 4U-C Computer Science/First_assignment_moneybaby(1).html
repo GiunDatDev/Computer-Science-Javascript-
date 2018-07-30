@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Determining Money For A Carpet</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+
+	function room_area_func(length, width){
+		var local_room_area;
+		local_room_area = (length + width) * 2;
+		return local_room_area;
+	}
+
+	function price_tag(area_of_room){
+		var price_per_unit, total_price;]
+		price_per_unit = 12.90;
+		total_price = area_of_room * price_per_unit;
+		return total_price;
+	}
+
+	function bill_printing(money_from_usr, area_of_room){
+		var money_return, total_price_bill; // This total price will be calculated using function price_tag lol
+		total_price_bill = price_tag(area_of_room)
+		money_return = money_from_usr - total_price_bill;
+		return money_return;
+	}
+</script>
+
+<center>
+	<h1>Please Enter The Lenght And The Width Of Your Room At The Form</h1>
+	<h2>And Please Enter Them In Meters</h2>
+</center>
+
+
+
+</body>
+</html>

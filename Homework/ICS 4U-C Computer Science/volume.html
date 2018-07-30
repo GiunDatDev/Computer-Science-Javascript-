@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find the volume of the sphere</title>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+	function rounding(n){
+		n = Number(n);
+		n = n.toFixed(2);
+		return n;
+	}
+
+	function sphere_volume(radius){
+		var volume_of_sphere, pi;
+		pi = Math.PI;
+		radius = Math.pow(radius, 3);
+		volume_of_sphere = (4/3) * pi * radius;
+		return volume_of_sphere; 
+	}
+
+	function get_info(){
+		var volume, radius, text;
+		radius = prompt("Please enter the radius of the sphere");
+		radius = Number(radius);
+		volume = sphere_volume(radius);
+		volume = rounding(volume);
+		text = "The volume of the sphere is: " + volume;
+		document.getElementById('volume').innerHTML = text;
+	}
+</script>
+
+<center>
+	<h1>This program will calculate the volume of the sphere</h1>
+	<br><br>
+	<input type="button" value="Find the sphere volume" onclick="get_info()">
+	<br>
+	<p id="volume"></p>
+</center>
+
+</body>
+</html>
